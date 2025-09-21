@@ -1,683 +1,79 @@
-/* --- Variáveis Globais e Reset --- */
+/* Complementos leves para o layout em Tailwind */
+
 :root {
-  --cor-primaria: #2A9D8F;      /* Verde-água principal */
-  --cor-primaria-leve: #E9C46A; /* Um toque de amarelo-mostarda para detalhes */
-  --cor-fundo: #F8F9FA;         /* Fundo quase branco, suave */
-  --cor-texto: #212529;         /* Texto principal, preto suave */
-  --cor-texto-secundario: #6C757D; /* Texto secundário, cinza */
-  --cor-branco: #FFFFFF;
-  --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
-  --borda-radius: 8px;
-  --fonte-titulo: 'Playfair Display', serif;
-  --fonte-corpo: 'Inter', sans-serif;
+  color-scheme: light;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: #111827;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.menu.is-active {
+  display: flex !important;
+}
+
+.footer-social {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background-color: rgba(212, 175, 55, 0.18);
+  color: #d4af37;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  background-color: #d4af37;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .footer-social {
+    flex-direction: column;
+  }
+}
+
+.specialties {
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--fonte-corpo);
-  line-height: 1.6;
-  color: var(--cor-texto);
-  background-color: var(--cor-fundo);
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.container {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* --- Estilos de Texto e Títulos --- */
-h1, h2, h3 {
-  font-family: var(--fonte-titulo);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--cor-texto);
-}
-
-h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--cor-primaria);
-}
-
-p {
-  color: var(--cor-texto-secundario);
-  margin-bottom: 1rem;
-}
-
-/* --- Botões --- */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  background-color: var(--cor-primaria);
-  color: var(--cor-branco);
-  text-decoration: none;
-  border-radius: var(--borda-radius);
-  font-weight: 600;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  background-color: #248a7e;
-}
-
-.btn-outline {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  background-color: transparent;
-  color: var(--cor-primaria);
-  text-decoration: none;
-  border: 2px solid var(--cor-primaria);
-  border-radius: var(--borda-radius);
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-outline:hover {
-  background-color: var(--cor-primaria);
-  color: var(--cor-branco);
-}
-
-.btn-small {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-}
-
-.btn-large {
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-}
-
-/* --- Cabeçalho (Header) --- */
-.site-header {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(5px);
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  text-decoration: none;
-  color: var(--cor-texto-secundario);
-  line-height: 1.2;
-}
-
-.brand img {
-  height: 40px;
-}
-
-.brand strong {
-  color: var(--cor-texto);
-  font-family: var(--fonte-titulo);
-  font-size: 1.2rem;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.menu a {
-  text-decoration: none;
-  color: var(--cor-texto);
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 0.3rem;
-}
-
-.menu a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--cor-primaria);
-  transition: width 0.3s ease;
-}
-
-.menu a:hover::after {
-  width: 100%;
-}
-
-/* Estilo para o link da página ativa no menu */
-.menu a.active {
-  color: var(--cor-primaria);
-}
-
-.menu a.active::after {
-  width: 100%;
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-/* --- Seção Hero (Página Inicial) --- */
-.hero {
-  padding: 5rem 0;
-  background-color: var(--cor-branco);
-}
-
-.hero-inner {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-}
-
-.hero-copy {
-  flex: 1;
-}
-
-.hero-media {
-  flex: 1;
-}
-
-.hero-media img {
-  border-radius: var(--borda-radius);
-  box-shadow: var(--sombra-suave);
-}
-
-.hero .actions {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.hero .badges {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin-top: 2.5rem;
-  flex-wrap: wrap;
-}
-
-.hero .badges li {
-  background-color: #e3f2f0;
-  color: #298e81;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-/* --- Seções Genéricas --- */
-.features {
-  padding: 5rem 0;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.card {
-  background-color: var(--cor-branco);
-  padding: 2.5rem;
-  border-radius: var(--borda-radius);
-  box-shadow: var(--sombra-suave);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.services-preview {
-  padding: 5rem 0;
-  background-color: var(--cor-branco);
-}
-
-.service-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.service-item {
-  border-left: 3px solid var(--cor-primaria);
-  padding-left: 1.5rem;
-}
-
-.actions.center {
-  text-align: center;
-}
-
-.testimonials {
-  padding: 5rem 0;
-  background-color: var(--cor-fundo);
-}
-
-.testimonials .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.testimonials blockquote {
-  background: var(--cor-branco);
-  padding: 2rem;
-  border-radius: var(--borda-radius);
-  border-left: 5px solid var(--cor-primaria-leve);
-}
-
-.testimonials cite {
-  display: block;
-  margin-top: 1rem;
-  font-weight: 600;
-  color: var(--cor-texto);
-  font-style: normal;
-}
-
-.cta {
-  background-color: var(--cor-primaria);
-  color: var(--cor-branco);
-  padding: 5rem 0;
-  text-align: center;
-}
-
-.cta-inner h2 {
-  color: var(--cor-branco);
-}
-
-.cta-inner p {
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 500px;
-  margin: 1rem auto 2rem;
-}
-
-.cta .btn {
-  background-color: var(--cor-branco);
-  color: var(--cor-primaria);
-}
-
-.cta .btn:hover {
-  background-color: #f0f0f0;
-}
-
-/* --- ESTILOS DE PÁGINAS INTERNAS (SERVIÇOS, SOBRE, ETC.) --- */
-
-.page-hero {
-  background-color: var(--cor-branco);
-  padding: 4rem 0;
-  text-align: center;
-  border-bottom: 1px solid #dee2e6;
-}
-
-.page-hero h1 {
-  color: var(--cor-primaria);
-  font-size: 2.8rem;
-}
-
-.page-hero p {
-  font-size: 1.2rem;
-  color: var(--cor-texto-secundario);
-  max-width: 600px;
-  margin: 0.5rem auto 0;
-}
-
-.grid-services {
-  padding: 5rem 0 3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-.grid-services article {
-  background-color: var(--cor-branco);
-  border: 1px solid #e9ecef;
-  padding: 2rem;
-  border-radius: var(--borda-radius);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.grid-services article:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--sombra-suave);
-}
-
-.grid-services h2 {
-  font-family: var(--fonte-titulo);
-  font-size: 1.6rem;
-  text-align: left;
-  margin-bottom: 0.5rem;
-  color: var(--cor-primaria);
-}
-
-.grid-services p {
-  font-size: 1rem;
-  color: var(--cor-texto-secundario);
-  margin-bottom: 0;
-}
-
-.about-clinic {
-  padding: 5rem 1.5rem;
-  text-align: center;
-  max-width: 800px;
-}
-
-.about-clinic h2 {
-  margin-bottom: 1.5rem;
-}
-
-.about-clinic p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-.team-section {
-    padding-bottom: 5rem;
-}
-
-.team-section h2 {
-  margin-bottom: 3rem;
-}
-
-.dentist-profile {
-  display: flex;
-  align-items: flex-start; /* Alinha os itens no topo */
-  gap: 2.5rem;
-  background-color: var(--cor-branco);
-  padding: 2.5rem;
-  border-radius: var(--borda-radius);
-  box-shadow: var(--sombra-suave);
-  margin-bottom: 2.5rem;
-}
-
-.dentist-photo {
-  flex: 0 0 200px;
-}
-
-.dentist-photo img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.dentist-info {
-  flex: 1;
-}
-
-.dentist-info h3 {
-  font-size: 1.8rem;
-  text-align: left;
-  margin-bottom: 0.25rem;
-}
-
-.dentist-info h4 {
-  font-family: var(--fonte-corpo);
-  font-weight: 600;
-  color: var(--cor-texto-secundario);
-  margin-bottom: 1.5rem;
-}
-
-.specialties {
-  list-style-type: '✓ ';
-  padding-left: 1.5rem;
-  margin-top: 1.5rem;
-}
-
 .specialties li {
-  margin-bottom: 0.5rem;
-  color: var(--cor-texto-secundario);
+  position: relative;
+  padding-left: 1.5rem;
 }
 
-.actions.center {
-  padding-bottom: 5rem;
-}
-
-/* --- Rodapé (Footer) --- */
-.site-footer {
-  background-color: var(--cor-texto);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 4rem 0 2rem;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid #495057;
-}
-
-.site-footer h3, .site-footer h4 {
-  font-family: var(--fonte-corpo);
-  color: var(--cor-branco);
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.site-footer a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.site-footer a:hover {
-  color: var(--cor-primaria);
-}
-
-.site-footer .list-unstyled {
-  list-style: none;
-}
-
-.site-footer .list-unstyled li {
-  margin-bottom: 0.5rem;
-}
-
-.site-footer .btn {
-  margin-top: 1rem;
-}
-
-.legal {
-  padding-top: 2rem;
-  text-align: center;
-}
-
-/* --- Acessibilidade --- */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #000;
-    color: white;
-    padding: 8px;
-    z-index: 101;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-/* --- Estilos da Página de Contato --- */
-.contact-section {
-  padding: 5rem 1.5rem;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Cria duas colunas de tamanho igual */
-  gap: 3rem;
-  background-color: var(--cor-branco);
-  padding: 3rem;
-  border-radius: var(--borda-radius);
-  box-shadow: var(--sombra-suave);
-}
-
-.contact-grid h2 {
-  text-align: left;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-
-/* Estilos do Formulário */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--cor-texto);
-}
-
-.form input,
-.form textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1px solid #ced4da;
-  border-radius: var(--borda-radius);
-  font-family: var(--fonte-corpo);
-  font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form input:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: var(--cor-primaria);
-  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
-}
-
-.form button {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.1rem;
-}
-
-/* Estilos da Coluna de Endereço */
-.address-container p {
-  margin-bottom: 1.5rem;
-  line-height: 1.7;
-}
-
-.address-container p a {
-    color: var(--cor-primaria);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.address-container p a:hover {
-    text-decoration: underline;
-}
-
-.map {
-    border-radius: var(--borda-radius);
-    margin-top: 1rem;
-}
-
-/* --- AJUSTE RESPONSIVO PARA A PÁGINA DE CONTATO --- */
-/* --- Design Responsivo (Mobile) --- */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
-    .contact-grid {
-    grid-template-columns: 1fr; /* Muda para uma coluna em telas pequenas */
-    padding: 2rem;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--cor-branco);
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1rem 0;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-  }
-
-  .menu.is-active {
-    display: flex;
-  }
-
-  .menu li {
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .hero-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .hero .actions {
-    justify-content: center;
-  }
-  
-  .hero .badges {
-    justify-content: center;
-  }
-  
-  /* Ajusta para 1 coluna em telas pequenas */
-  .cards, 
-  .service-list, 
-  .testimonials .container,
-  .grid-services {
-    grid-template-columns: 1fr;
-  }
-
-  /* Ajustes da página Sobre para mobile */
-  .dentist-profile {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .dentist-info h3, .dentist-info h4 {
-    text-align: center;
-  }
+.specialties li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: #b8860b;
+  font-weight: 700;
 }

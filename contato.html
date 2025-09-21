@@ -3,72 +3,110 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contato | Dra. Luciana de Souza | Odontologia</title>
+  <title>Contato | Dra. Luciana Abreu | Odontologia</title>
   <meta name="description" content="Fale com a clínica para dúvidas e informações.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf7e9',
+              100: '#f6e6c2',
+              200: '#eacf93',
+              400: '#d4af37',
+              500: '#b8860b',
+              600: '#8f6d07'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Playfair Display', 'serif']
+          },
+          boxShadow: {
+            soft: '0 20px 35px -15px rgba(184, 134, 11, 0.3)'
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#2A9D8F">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dentist", "name": "Dra. Luciana de Souza", "image": "https://exemplo.com.br/assets/img/dra-luciana.jpg", "@id": "https://exemplo.com.br/", "url": "https://exemplo.com.br/", "telephone": "+55-31-99999-0000", "address": {"@type": "PostalAddress", "streetAddress": "Rua Exemplo, 123", "addressLocality": "Belo Horizonte", "addressRegion": "MG", "postalCode": "30100-000", "addressCountry": "BR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}], "priceRange": "$$", "areaServed": "Belo Horizonte e região", "sameAs": ["https://www.instagram.com/clinicadraluciana"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dentist", "name": "Dra. Luciana Abreu", "image": "https://exemplo.com.br/assets/img/dra-luciana.jpg", "@id": "https://exemplo.com.br/", "url": "https://exemplo.com.br/", "telephone": "+55-31-99300-0801", "address": {"@type": "PostalAddress", "streetAddress": "Rua Santos Dumont, 301, Bairro Várzea", "addressLocality": "Lagoa Santa", "addressRegion": "MG", "postalCode": "33233-092", "addressCountry": "BR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}], "priceRange": "$", "areaServed": "Lagoa Santa e região", "sameAs": ["https://www.instagram.com/dra_luciana_abreu/"]}</script>
 </head>
-<body>
+<body class="bg-zinc-50 text-slate-800 font-sans antialiased">
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-<header class="site-header" role="banner" aria-label="Cabeçalho do site">
-  <div class="container header-inner">
-    <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="Logotipo da clínica, um dente estilizado"> <span>Clínica Odontológica<br><strong>Dra. Luciana</strong></span></a>
+<header class="site-header sticky top-0 z-50 border-b border-brand-100 bg-white/90 backdrop-blur">
+  <div class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-6">
+    <a class="brand flex items-center gap-3 text-slate-800 no-underline" href="index.html" aria-label="Clínica Odontológica Doutora Luciana">
+      <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12 4C16.418 4 20 7.582 20 12C20 16.418 16.418 20 12 20C7.582 20 4 16.418 4 12C4 7.582 7.582 4 12 4ZM12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6ZM12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8Z" fill="#B8860B"/>
+        <path d="M12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8Z" fill="#D4AF37"/>
+      </svg>
+      <span class="flex flex-col">
+        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-500">Clínica Odontológica</span>
+        <strong class="font-display text-lg text-slate-900">Doutora Luciana</strong>
+      </span>
+    </a>
     <nav class="nav" role="navigation" aria-label="Navegação principal">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-      <ul id="menu" class="menu">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="servicos.html">Serviços</a></li>
-        <li><a href="agendar.html" class="btn btn-small">Agendar</a></li>
-        <li><a href="contato.html" class="active">Contato</a></li>
+      <button class="nav-toggle inline-flex items-center gap-2 rounded-md border border-brand-200 px-3 py-2 text-sm font-semibold text-brand-600 transition hover:bg-brand-50 md:hidden" aria-expanded="false" aria-controls="menu">
+        <span class="sr-only">Abrir menu</span>
+        Menu
+      </button>
+      <ul id="menu" class="menu hidden flex-col gap-6 rounded-xl border border-brand-100 bg-white px-6 py-6 text-base font-semibold text-slate-700 shadow-soft md:flex md:flex-row md:items-center md:gap-8 md:border-none md:bg-transparent md:p-0 md:text-sm md:shadow-none">
+        <li><a class="transition hover:text-brand-500" href="index.html">Início</a></li>
+        <li><a class="transition hover:text-brand-500" href="sobre.html">Sobre</a></li>
+        <li><a class="transition hover:text-brand-500" href="servicos.html">Serviços</a></li>
+        <li><a class="inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-brand-500/30 transition hover:-translate-y-0.5 hover:bg-brand-600" href="agendar.html">Agendar</a></li>
+        <li><a class="text-brand-600 transition hover:text-brand-500" href="contato.html" aria-current="page">Contato</a></li>
       </ul>
     </nav>
   </div>
 </header>
-<main id="conteudo" tabindex="-1">
+<main id="conteudo" tabindex="-1" class="overflow-hidden">
 
-  <section class="page-hero">
-    <div class="container">
-      <h1>Contato</h1>
-      <p>Fale com a gente, será um prazer atender você.</p>
+  <section class="page-hero border-b border-brand-100 bg-white py-16 sm:py-20">
+    <div class="container mx-auto max-w-3xl px-4 text-center">
+      <h1 class="font-display text-4xl text-slate-900 sm:text-5xl">Contato</h1>
+      <p class="mt-4 text-base text-slate-600">Fale com a gente, será um prazer atender você.</p>
     </div>
   </section>
 
-  <section class="container contact-section">
-    <div class="contact-grid">
+  <section class="container mx-auto px-4 py-16">
+    <div class="grid gap-10 lg:grid-cols-2">
       
-      <div class="form-container">
-        <h2>Envie uma mensagem</h2>
-        <form class="form" action="https://formspree.io/f/xjkenooo" method="POST">
-          <div class="form-group">
-            <label for="nome">Nome Completo</label>
-            <input id="nome" name="nome" type="text" required>
+      <div class="form-container rounded-3xl bg-white p-8 shadow-soft ring-1 ring-brand-100">
+        <h2 class="font-display text-2xl text-slate-900">Envie uma mensagem</h2>
+        <form class="mt-6 space-y-5" action="https://formspree.io/f/xjkenooo" method="POST">
+          <div class="form-group space-y-2">
+            <label class="text-sm font-semibold text-slate-700" for="nome">Nome Completo</label>
+            <input class="w-full rounded-xl border border-brand-200 bg-white px-4 py-3 text-sm text-slate-700 transition focus:border-brand-400 focus:outline-none focus:ring focus:ring-brand-100" id="nome" name="nome" type="text" required>
           </div>
-          <div class="form-group">
-            <label for="email">Seu E-mail</label>
-            <input id="email" name="email" type="email" required>
+          <div class="form-group space-y-2">
+            <label class="text-sm font-semibold text-slate-700" for="email">Seu E-mail</label>
+            <input class="w-full rounded-xl border border-brand-200 bg-white px-4 py-3 text-sm text-slate-700 transition focus:border-brand-400 focus:outline-none focus:ring focus:ring-brand-100" id="email" name="email" type="email" required>
           </div>
-          <div class="form-group">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+          <div class="form-group space-y-2">
+            <label class="text-sm font-semibold text-slate-700" for="mensagem">Mensagem</label>
+            <textarea class="w-full rounded-xl border border-brand-200 bg-white px-4 py-3 text-sm text-slate-700 transition focus:border-brand-400 focus:outline-none focus:ring focus:ring-brand-100" id="mensagem" name="mensagem" rows="5" required></textarea>
           </div>
-          <button class="btn" type="submit">Enviar Mensagem</button>
+          <button class="inline-flex w-full items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition hover:-translate-y-0.5 hover:bg-brand-600" type="submit">Enviar Mensagem</button>
         </form>
       </div>
 
-      <div class="address-container">
-        <h2>Informações da Clínica</h2>
-        <div class="address-info">
-            <p><strong>Endereço:</strong><br>Rua Santos Dumont, nº 301, Bairro Várzea, Lagoa Santa - MG, CEP 33233-092</p>
-            <p><strong>Horário de Atendimento:</strong><br>Segunda a Sexta, das 09h às 18h<br>Sábado, das 09h às 12h<br>Domingos e Feriados, Fechado</p>
-            <p>
-                <strong>Telefone:</strong> <a href="tel:+5531993000801">+55 (31) 99300-0801</a><br>
-                <strong>E-mail:</strong> <a href="mailto:dralucianaabreu@gmail.com">dralucianaabreu@gmail.com</a>
+      <div class="address-container rounded-3xl bg-brand-50/60 p-8 shadow-soft ring-1 ring-brand-100">
+        <h2 class="font-display text-2xl text-slate-900">Informações da Clínica</h2>
+        <div class="address-info mt-6 space-y-4 text-base text-slate-600">
+            <p><strong class="text-brand-600">Endereço:</strong><br>Rua Santos Dumont, nº 301, Bairro Várzea, Lagoa Santa - MG, CEP 33233-092</p>
+            <p><strong class="text-brand-600">Horário de Atendimento:</strong><br>Segunda a Sexta, das 09h às 18h<br>Sábado, das 09h às 12h<br>Domingos e Feriados, Fechado</p>
+            <p class="space-y-1">
+                <span class="block"><strong class="text-brand-600">Telefone:</strong> <a class="text-brand-600 transition hover:text-brand-700" href="tel:+5531993000801">+55 (31) 99300-0801</a></span>
+                <span class="block"><strong class="text-brand-600">E-mail:</strong> <a class="text-brand-600 transition hover:text-brand-700" href="mailto:dralucianaabreu@gmail.com">dralucianaabreu@gmail.com</a></span>
             </p>
         </div>
         <iframe 
@@ -88,31 +126,38 @@
   </section>
 
 </main>
-<footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <div>
-      <h3>Clínica Odontológica – Dra. Luciana</h3>
-      <p>Atendimento humanizado, tecnologia e responsabilidade com seu sorriso.</p>
-      <p>CRO: 00000 • BH/MG</p>
+<footer class="site-footer bg-slate-900 text-slate-200" role="contentinfo">
+  <div class="container mx-auto grid gap-12 px-4 py-16 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="space-y-4">
+      <h3 class="font-display text-xl text-white">Clínica Odontológica – Dra. Luciana</h3>
+      <p class="text-sm text-slate-300">Atendimento humanizado, tecnologia e responsabilidade para valorizar cada sorriso.</p>
+      <p class="text-sm font-semibold text-brand-100">CRO: 72544 • Lagoa Santa/MG</p>
     </div>
-    <div>
-      <h4>Contato</h4>
-      <ul class="list-unstyled">
-        <li><a href="tel:+5531993000801">+55 (31) 99300-0801</a></li>
-        <li><a href="mailto:dralucianaabreu@gmail.com">dralucianaabreu@gmail.com</a></li>
-         <li><a href="https://maps.google.com?q=Rua+santos+dumont,+301,+lagoa+santa" target="_blank" rel="noopener">Rua Santos Dumont, nº 301, Bairro Várzea, Lagoa Santa - MG, CEP 33233-092</a></li>
+    <div class="space-y-4">
+      <h4 class="font-semibold text-white">Contato</h4>
+      <ul class="space-y-2 text-sm text-slate-300">
+        <li><a class="transition hover:text-brand-200" href="tel:+5531993000801">+55 (31) 99300-0801</a></li>
+        <li><a class="transition hover:text-brand-200" href="mailto:dralucianaabreu@gmail.com">dralucianaabreu@gmail.com</a></li>
+        <li><a class="transition hover:text-brand-200" href="https://maps.google.com?q=Rua+santos+dumont,+301,+lagoa+santa" target="_blank" rel="noopener">Rua Santos Dumont, nº 301, Bairro Várzea, Lagoa Santa - MG, CEP 33233-092</a></li>
       </ul>
+      <div class="footer-social" aria-label="Links rápidos da clínica">
+        <a class="hover:-translate-y-0.5" href="https://calendly.com/dralucianaabreu/60min" target="_blank" rel="noopener">Agendar no Calendly</a>
+        <a class="hover:-translate-y-0.5" href="https://www.instagram.com/clinicadraluciana" target="_blank" rel="noopener">Instagram</a>
+        <a class="hover:-translate-y-0.5" href="https://wa.me/5531993000801" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
-    <div>
-      <h4>Atendimento</h4>
-      <p>Seg–Sex, 09h às 18h</p>
-      <p>Sab, 09h às 12h</p>
-      <p>Dom-Feriados, Fechado</p>
-      <a class="btn" href="agendar.html">Agendar agora</a>
+    <div class="space-y-4">
+      <h4 class="font-semibold text-white">Atendimento</h4>
+      <p class="text-sm text-slate-300">Seg–Sex, 09h às 18h</p>
+      <p class="text-sm text-slate-300">Sab, 09h às 12h</p>
+      <p class="text-sm text-slate-300">Dom-Feriados, Fechado</p>
+      <a class="inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-brand-500/30 transition hover:-translate-y-0.5 hover:bg-brand-600" href="agendar.html">Agendar agora</a>
     </div>
   </div>
-  <div class="container legal">
-    <small>© Dra. Luciana de Souza – Odontologia Odontologia • <a href="politica-privacidade.html">Política de Privacidade</a></small>
+  <div class="border-t border-white/10 py-6">
+    <div class="container mx-auto px-4 text-center text-xs text-slate-400">
+      <small>© Dra. Luciana Abreu – Odontologia • <a class="text-brand-200 transition hover:text-brand-100" href="politica-privacidade.html">Política de Privacidade</a></small>
+    </div>
   </div>
 </footer>
 <script src="assets/script.js"></script>
