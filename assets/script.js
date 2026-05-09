@@ -42,6 +42,31 @@ document.addEventListener('DOMContentLoaded', function() {
     heroImage.src = heroImages[randomIndex];
   }
 
+  const heroTitle = document.querySelector('#hero-title');
+  const heroDescription = document.querySelector('#hero-description');
+
+  if (heroTitle && heroDescription) {
+    const heroTitles = [
+      'Sorriso saudável, experiência acolhedora.',
+      'Cuidado personalizado para seu sorriso.',
+      'Tecnologia e carinho em cada consulta.',
+      'Sorriso confiante, atendimento humanizado.',
+      'Saúde bucal com excelência e dedicação.'
+    ];
+
+    const heroDescriptions = [
+      'Consultas sem pressa, explicações claras e tecnologia de ponta para cuidar do seu sorriso com carinho e confiança.',
+      'Atendimento acolhedor, diagnósticos precisos e tratamentos modernos para um sorriso radiante e saudável.',
+      'Profissionais qualificados, equipamentos de ponta e um ambiente tranquilo para cuidar da sua saúde bucal.',
+      'Consultas personalizadas, tecnologia avançada e cuidado humanizado para transformar seu sorriso.',
+      'Experiência odontológica completa, com foco na prevenção, estética e bem-estar do paciente.'
+    ];
+
+    const randomIndex = Math.floor(Math.random() * heroTitles.length);
+    heroTitle.textContent = heroTitles[randomIndex];
+    heroDescription.textContent = heroDescriptions[randomIndex];
+  }
+
   const dentistSelector = document.querySelector('#dentist-selector');
   const calendlyContainer = document.querySelector('#calendly-container');
   const dentistCalendlyUrls = {
