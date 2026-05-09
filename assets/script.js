@@ -31,6 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  const heroImage = document.querySelector('#hero-image');
+
+  if (heroImage) {
+    const heroImages = [
+      'assets/img/dra-luciana1.jpeg',
+      'assets/img/dra-luciana2.jpeg'
+    ];
+    const randomIndex = Math.floor(Math.random() * heroImages.length);
+    heroImage.src = heroImages[randomIndex];
+  }
+
   const dentistSelector = document.querySelector('#dentist-selector');
   const calendlyContainer = document.querySelector('#calendly-container');
   const dentistCalendlyUrls = {
